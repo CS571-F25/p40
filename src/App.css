@@ -18,19 +18,31 @@
   text-decoration: none;
   display: inline-flex;
   align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  transition: all 160ms ease-in-out;
 }
 
 .home-icon {
   width: 2rem;
   height: 2rem;
   padding: 0.25rem;
-  border-radius: 0.35rem;
-  transition: background-color 160ms, color 160ms, transform 160ms;
+  transition: transform 160ms;
 }
-.home-link:hover .home-icon {
+
+.home-text {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.home-link:hover {
   background-color: rgba(100, 108, 255, 0.08);
-  transform: translateY(-2px);
   color: #646cff;
+}
+
+.home-link:hover .home-icon {
+  transform: translateY(-2px);
 }
 
 .logo {
