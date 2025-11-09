@@ -1,0 +1,28 @@
+{
+  "sections": {
+    "History": [
+      {
+        "name": "The Pyramids of Giza",
+        "description": "One of the Seven Wonders of the Ancient World, built over 4,500 years ago.",
+        "recommend": "Go at sunrise for stunning views and fewer tourists.",
+        "image": "https://images.unsplash.com/photo-1551717743-4995981b93f5"
+      }
+    ],
+    "Architecture": [
+      {
+        "name": "The Egyptian Museum",
+        "description": "Houses the world’s largest collection of ancient Egyptian artifacts, including King Tut’s treasures.",
+        "recommend": "Allocate half a day to explore.",
+        "image": "https://images.unsplash.com/photo-1580130273259-1f9a4ed6c90e"
+      }
+    ],
+    "Culture": [
+      {
+        "name": "Khan el-Khalili Bazaar",
+        "description": "Historic market offering spices, gold, textiles, and traditional Egyptian crafts.",
+        "recommend": "Practice your bargaining skills!",
+        "image": "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e"
+      }
+    ]
+  }
+}

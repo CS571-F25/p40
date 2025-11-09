@@ -1,0 +1,28 @@
+{
+  "sections": {
+    "Food": [
+      {
+        "name": "Café de Flore",
+        "description": "One of Paris’s oldest cafés, famous for croissants, espresso, and street-side atmosphere.",
+        "recommend": "Order a café au lait and people-watch like a Parisian.",
+        "image": "https://images.unsplash.com/photo-1514933651103-005eec06c04b"
+      }
+    ],
+    "Art": [
+      {
+        "name": "The Louvre Museum",
+        "description": "Home to world-famous art pieces like the Mona Lisa and Venus de Milo.",
+        "recommend": "Go early morning to avoid crowds.",
+        "image": "https://images.unsplash.com/photo-1502602898657-3e91760cbb34"
+      }
+    ],
+    "Architecture": [
+      {
+        "name": "Eiffel Tower",
+        "description": "The symbol of Paris offering panoramic views over the Seine and city skyline.",
+        "recommend": "Visit at sunset when the lights turn on.",
+        "image": "https://images.unsplash.com/photo-1522098543979-ffc7f79d5a3e"
+      }
+    ]
+  }
+}

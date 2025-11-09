@@ -1,0 +1,28 @@
+{
+  "sections": {
+    "Food": [
+      {
+        "name": "Kaiseki Cuisine",
+        "description": "A multi-course Japanese haute cuisine showcasing local ingredients and elegant presentation.",
+        "recommend": "Try it in a traditional ryokan for authenticity.",
+        "image": "https://images.unsplash.com/photo-1606131731679-6b1d4ecfdc5f"
+      }
+    ],
+    "Culture": [
+      {
+        "name": "Gion District",
+        "description": "Kyoto’s famous geisha neighborhood filled with tea houses and traditional wooden architecture.",
+        "recommend": "Evening walks reveal Kyoto’s timeless charm.",
+        "image": "https://images.unsplash.com/photo-1549880338-65ddcdfd017b"
+      }
+    ],
+    "History": [
+      {
+        "name": "Fushimi Inari Shrine",
+        "description": "Renowned for its thousands of red torii gates winding through the forest.",
+        "recommend": "Visit early morning to avoid the crowd.",
+        "image": "https://images.unsplash.com/photo-1549887534-8a8b3b0d1d5a"
+      }
+    ]
+  }
+}

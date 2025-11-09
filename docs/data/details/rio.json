@@ -1,0 +1,28 @@
+{
+  "sections": {
+    "Beach": [
+      {
+        "name": "Copacabana Beach",
+        "description": "World-famous white sand beach buzzing with samba music and beach volleyball.",
+        "recommend": "Visit during the morning to avoid crowds.",
+        "image": "https://images.unsplash.com/photo-1534447677768-be436bb09401"
+      }
+    ],
+    "Festival": [
+      {
+        "name": "Rio Carnival",
+        "description": "A week-long celebration with parades, costumes, and samba dancing through the streets.",
+        "recommend": "Book accommodation months in advance.",
+        "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d"
+      }
+    ],
+    "Nature": [
+      {
+        "name": "Christ the Redeemer",
+        "description": "An iconic 30-meter-tall statue overlooking the city from Mount Corcovado.",
+        "recommend": "Go early or late to enjoy clear views.",
+        "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d"
+      }
+    ]
+  }
+}

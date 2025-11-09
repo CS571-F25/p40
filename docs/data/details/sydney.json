@@ -1,0 +1,28 @@
+{
+  "sections": {
+    "Beach": [
+      {
+        "name": "Bondi Beach",
+        "description": "Sydney’s iconic surf beach with golden sands and clear waves.",
+        "recommend": "Try an early morning swim or surf lesson.",
+        "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e"
+      }
+    ],
+    "Nature": [
+      {
+        "name": "Blue Mountains National Park",
+        "description": "A UNESCO World Heritage site offering dramatic cliffs and hiking trails.",
+        "recommend": "Take a day trip to see the Three Sisters rock formation.",
+        "image": "https://images.unsplash.com/photo-1565058528603-5e8b57e68d52"
+      }
+    ],
+    "Citylife": [
+      {
+        "name": "Sydney Opera House",
+        "description": "World-famous performing arts venue by the harbor, known for its sail-like design.",
+        "recommend": "Join a guided tour or enjoy sunset views nearby.",
+        "image": "https://images.unsplash.com/photo-1506976785307-8732e854ad04"
+      }
+    ]
+  }
+}
