@@ -1,0 +1,34 @@
+{
+  "sections": {
+    "Food": [
+      {
+        "name": "Sushi at Tsukiji Market",
+        "description": "Experience the freshest sushi in Tokyo, prepared by masters at the historic Tsukiji fish market.",
+        "recommend": "Try omakase-style sushi with seasonal fish.",
+        "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c"
+      },
+      {
+        "name": "Ramen Street at Tokyo Station",
+        "description": "A paradise for ramen lovers offering different regional broths and noodle styles.",
+        "recommend": "Shoyu ramen from Tokyo-style shops is a must.",
+        "image": "https://images.unsplash.com/photo-1604909053190-f1d9f1d0459a"
+      }
+    ],
+    "Culture": [
+      {
+        "name": "Meiji Shrine",
+        "description": "A peaceful Shinto shrine surrounded by forest, offering a quiet escape from the busy city.",
+        "recommend": "Visit early morning for the best experience.",
+        "image": "https://images.unsplash.com/photo-1587223962930-37031b802763"
+      }
+    ],
+    "Technology": [
+      {
+        "name": "Akihabara",
+        "description": "Tokyo’s electric town full of tech shops, gaming arcades, and anime culture.",
+        "recommend": "Explore the latest gadgets and themed cafés.",
+        "image": "https://images.unsplash.com/photo-1505150892987-424388e9b7f3"
+      }
+    ]
+  }
+}

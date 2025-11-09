@@ -1,0 +1,90 @@
+[
+  {
+    "id": 1,
+    "name": "Tokyo",
+    "country": "Japan",
+    "region": "Asia",
+    "summary": "Tokyo blends high-tech innovation with deep-rooted traditions. Visitors can enjoy sushi, ramen, and vibrant street food while exploring temples and neon-lit districts like Shibuya.",
+    "tags": ["Food", "Culture", "Technology"],
+    "bestSeasons": ["Spring", "Autumn"],
+    "image": "https://images.unsplash.com/photo-1553621042-f6e147245754",
+    "detailFile": "tokyo.json"
+  },
+  {
+    "id": 2,
+    "name": "Paris",
+    "country": "France",
+    "region": "Europe",
+    "summary": "The city of light, fashion, and romance. Enjoy croissants and fine wine by the Eiffel Tower, explore the Louvre, and stroll through art-filled Montmartre streets.",
+    "tags": ["Art", "Food", "Architecture"],
+    "bestSeasons": ["Spring", "Summer"],
+    "image": "https://images.unsplash.com/photo-1502602898657-3e91760cbb34",
+    "detailFile": "paris.json"
+  },
+  {
+    "id": 3,
+    "name": "New York",
+    "country": "United States",
+    "region": "North America",
+    "summary": "The city that never sleeps — from Times Square to Central Park. Discover art at MoMA, Broadway shows, and iconic New York pizza and bagels.",
+    "tags": ["Citylife", "Food", "Art"],
+    "bestSeasons": ["Autumn", "Winter"],
+    "image": "https://images.unsplash.com/photo-1549921296-3c0c9e0d9a66",
+    "detailFile": "newyork.json"
+  },
+  {
+    "id": 4,
+    "name": "Kyoto",
+    "country": "Japan",
+    "region": "Asia",
+    "summary": "A peaceful city filled with ancient temples, tea houses, and cherry blossoms. Known for matcha desserts, kaiseki cuisine, and traditional culture around Gion district.",
+    "tags": ["Culture", "History", "Food"],
+    "bestSeasons": ["Spring", "Autumn"],
+    "image": "https://images.unsplash.com/photo-1568254183919-78a4f43a2877",
+    "detailFile": "kyoto.json"
+  },
+  {
+    "id": 5,
+    "name": "Sydney",
+    "country": "Australia",
+    "region": "Oceania",
+    "summary": "A sunny harbor city where modern life meets ocean breeze. Surf at Bondi Beach, see the Sydney Opera House, and enjoy local seafood under blue skies.",
+    "tags": ["Beach", "Nature", "Citylife"],
+    "bestSeasons": ["Summer", "Spring"],
+    "image": "https://images.unsplash.com/photo-1506976785307-8732e854ad04",
+    "detailFile": "sydney.json"
+  },
+  {
+    "id": 6,
+    "name": "Cairo",
+    "country": "Egypt",
+    "region": "Africa",
+    "summary": "Home of the Great Pyramids and the Nile. Explore ancient architecture, colorful bazaars, and try traditional dishes like koshari and falafel.",
+    "tags": ["History", "Architecture", "Culture"],
+    "bestSeasons": ["Winter", "Autumn"],
+    "image": "https://images.unsplash.com/photo-1544986581-efac024faf62",
+    "detailFile": "cairo.json"
+  },
+  {
+    "id": 7,
+    "name": "Rio de Janeiro",
+    "country": "Brazil",
+    "region": "South America",
+    "summary": "Vibrant energy, samba music, and breathtaking landscapes. Visit Copacabana Beach, Christ the Redeemer, and enjoy Brazilian barbecue and tropical festivals.",
+    "tags": ["Beach", "Festival", "Nature"],
+    "bestSeasons": ["Summer"],
+    "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d",
+    "detailFile": "rio.json"
+  },
+  {
+    "id": 8,
+    "name": "Reykjavik",
+    "country": "Iceland",
+    "region": "Europe",
+    "summary": "The northernmost capital, famous for northern lights, glaciers, and geothermal spas like the Blue Lagoon. Try Icelandic lamb soup and explore stunning natural wonders.",
+    "tags": ["Nature", "Adventure", "Cold"],
+    "bestSeasons": ["Winter"],
+    "image": "https://images.unsplash.com/photo-1579033461380-adb47c3eb938",
+    "detailFile": "reykjavik.json"
+  }
+]

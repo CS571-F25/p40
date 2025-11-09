@@ -1,0 +1,28 @@
+{
+  "sections": {
+    "Nature": [
+      {
+        "name": "Blue Lagoon",
+        "description": "A geothermal spa surrounded by lava fields, perfect for relaxing in warm mineral water.",
+        "recommend": "Book online and visit at sunset.",
+        "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb"
+      }
+    ],
+    "Adventure": [
+      {
+        "name": "Golden Circle Tour",
+        "description": "A scenic route covering Thingvellir National Park, Geysir, and Gullfoss waterfall.",
+        "recommend": "Ideal for one-day road trips.",
+        "image": "https://images.unsplash.com/photo-1568263875383-5163f3b5c3e4"
+      }
+    ],
+    "Cold": [
+      {
+        "name": "Northern Lights Viewing",
+        "description": "Catch the aurora borealis dancing over Iceland’s clear winter sky.",
+        "recommend": "Best seen from late September to April.",
+        "image": "https://images.unsplash.com/photo-1483347756197-71ef80e95f73"
+      }
+    ]
+  }
+}
