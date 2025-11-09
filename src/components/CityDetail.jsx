@@ -45,9 +45,14 @@ export default function CityDetail() {
 
   useEffect(() => {
     if (city) {
-      import(`../data/details/${city.detailFile}`)
-        .then((res) => setDetails(res.default))
-        .catch(() => setDetails(null));
+     const path = `${import.meta.env.BASE_URL}data/details/${city.detailFile}`;
+     fetch(path)
+        .then((res) => {
+        if (!res.ok) throw new Error("File not found");
+        return res.json();
+  })
+  .then((data) => setDetails(data))
+  .catch(() => setDetails(null));
     }
   }, [city]);
 
