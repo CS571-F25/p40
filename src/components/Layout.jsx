@@ -79,6 +79,15 @@ export default function Layout() {
               >
                 Favorites
               </Nav.Link>
+              <Nav.Link
+                as={Link}
+                to="/ai-search"
+                active={currentPath.startsWith("/ai-search")}
+                onClick={handleNavClick}
+                className="mx-3"
+              >
+                Try AI Search
+              </Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>

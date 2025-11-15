@@ -1,58 +1,79 @@
 // src/components/CityDetail.jsx
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, useSearchParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Container, Row, Col, Image, Card, Button, Badge } from "react-bootstrap";
 import citiesData from "../data/cities.json";
+import CityCard from "./CityCard";
+import PlaceCard from "./PlaceCard";
 
 export default function CityDetail() {
   const { id } = useParams();
   const navigate = useNavigate();
   const city = citiesData.find((c) => c.id === Number(id));
+  const [searchParams] = useSearchParams();
+
+  // 每次切换到新的城市详情时，让页面自动滚到顶部
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, [id]);
+
+
+  // 之前的搜索参数字符串，比如 "q=kyoto&tags=food"
+  const prevSearch = searchParams.toString();
+  // 回到搜索页的地址：如果有之前的参数，就带回去；否则回到默认 all
+  const backTo = prevSearch ? `/search?${prevSearch}` : "/search?q=all";
+
   const [details, setDetails] = useState(null);
   const [favorites, setFavorites] = useState([]);
 
-   // 加载收藏状态
+  // 加载收藏状态
   useEffect(() => {
     const stored = JSON.parse(localStorage.getItem("favorites")) || [];
     setFavorites(stored);
   }, []);
 
-  // 增加一个动画控制状态
+  // 控制主按钮的动画
   const [animate, setAnimate] = useState(false);
 
-    // 切换收藏状态
+  // 切换当前城市的收藏状态
   const toggleFavorite = () => {
+    if (!city) return;
     let updated;
     let willAnimate = false;
+
     if (favorites.includes(city.id)) {
       updated = favorites.filter((fid) => fid !== city.id);
     } else {
       updated = [...favorites, city.id];
       willAnimate = true;
     }
+
     setFavorites(updated);
     localStorage.setItem("favorites", JSON.stringify(updated));
 
-    //  触发一次动画
     if (willAnimate) {
-    setAnimate(true);
-    setTimeout(() => setAnimate(false), 300); // 动画结束后恢复
-  }
+      setAnimate(true);
+      setTimeout(() => setAnimate(false), 300);
+    }
   };
 
-  // 判断是否收藏
-  const isFav = favorites.includes(city?.id);
+  // 判断当前城市是否收藏
+  const isFav = city ? favorites.includes(city.id) : false;
 
+  // 加载详情 JSON
   useEffect(() => {
     if (city) {
-     const path = `${import.meta.env.BASE_URL}data/details/${city.detailFile}`;
-     fetch(path)
+      const path = `${import.meta.env.BASE_URL}data/details/${city.detailFile}`;
+      fetch(path)
         .then((res) => {
-        if (!res.ok) throw new Error("File not found");
-        return res.json();
-  })
-  .then((data) => setDetails(data))
-  .catch(() => setDetails(null));
+          if (!res.ok) throw new Error("File not found");
+          return res.json();
+        })
+        .then((data) => setDetails(data))
+        .catch(() => setDetails(null));
     }
   }, [city]);
 
@@ -61,14 +82,18 @@ export default function CityDetail() {
     return (
       <Container className="text-center mt-5">
         <h2>City not found 🏙️</h2>
-        <Button variant="outline-primary" className="mt-3" onClick={() => navigate(-1)}>
+        <Button
+          variant="outline-primary"
+          className="mt-3"
+          onClick={() => navigate(-1)}
+        >
           Go Back
         </Button>
       </Container>
     );
   }
 
-  // 2️⃣ 加载中
+  // 2️⃣ 加载详情中 / 加载失败
   if (!details) {
     return (
       <Container className="text-center mt-5">
@@ -77,9 +102,36 @@ export default function CityDetail() {
     );
   }
 
-  // 3️⃣ 页面内容
+  // 3️⃣ 计算相似城市（同区域或共享标签，排除当前城市，最多 3 个）
+  const similarCities = citiesData
+    .filter((c) => c.id !== city.id)
+    .filter(
+      (c) =>
+        c.region === city.region ||
+        ((c.tags || []).some((tag) => (city.tags || []).includes(tag)))
+    )
+    .slice(0, 3);
+
+  // 4️⃣ 页面内容
   return (
     <Container className="mt-4 mb-5">
+      {/* 内容左上角返回按钮 */}
+      <div
+        className="text-start mb-3"
+        style={{
+          position: "relative",
+          top: "-20px",
+        }}
+      >
+        <Button
+          variant="outline-secondary"
+          onClick={() => navigate(backTo)}
+          aria-label="Go back to explore destinations"
+        >
+          ← Back to Explore
+        </Button>
+      </div>
+
       {/* 顶部城市概览 */}
       <Row className="align-items-center mb-5">
         <Col md={6}>
@@ -93,7 +145,9 @@ export default function CityDetail() {
         </Col>
 
         <Col md={6} className="mt-3 mt-md-0">
-          <h2 className="fw-bold">{city.name}, {city.country}</h2>
+          <h2 className="fw-bold">
+            {city.name}, {city.country}
+          </h2>
           <p className="text-muted mb-1">{city.region}</p>
           <p style={{ fontSize: "1.05rem" }}>{city.summary}</p>
 
@@ -113,13 +167,6 @@ export default function CityDetail() {
 
           <div className="mt-3">
             <Button
-              variant="outline-primary"
-              className="me-2"
-              onClick={() => navigate("/search?q=all")}
-            >
-              ← Back to Explore
-            </Button>
-            <Button
               variant={isFav ? "danger" : "outline-danger"}
               onClick={toggleFavorite}
               className={animate ? "heart-pulse" : ""}
@@ -135,43 +182,54 @@ export default function CityDetail() {
         Discover the best of {city.name}
       </h4>
 
-      {Object.entries(details.sections).map(([tag, items]) => (
-        <div key={tag} className="mb-5">
-          <h5 className="text-capitalize fw-semibold mb-3">#{tag}</h5>
-          <Row xs={1} md={2} lg={3} className="g-4">
-            {items.map((place, idx) => (
-              <Col key={idx}>
-                <Card className="h-100 shadow-sm border-0">
-                  <Card.Img
-                    variant="top"
-                    src={place.image}
-                    alt={place.name}
-                    style={{ height: "180px", objectFit: "cover" }}
-                  />
-                  <Card.Body>
-                    <Card.Title className="fw-bold">{place.name}</Card.Title>
-                    <Card.Text style={{ fontSize: "0.9rem" }}>
-                      {place.description}
-                    </Card.Text>
-                    <Card.Text
-                      className="text-muted"
-                      style={{ fontSize: "0.85rem" }}
-                    >
-                      <em>Recommendation:</em> {place.recommend}
-                    </Card.Text>
-                  </Card.Body>
-                </Card>
+{Object.entries(details.sections).map(([tag, items]) => (
+  <div key={tag} className="mb-5">
+    <h5 className="text-capitalize fw-semibold mb-3">#{tag}</h5>
+    <Row xs={1} md={2} lg={3} className="g-4">
+      {items.map((place, idx) => (
+        <Col key={idx}>
+          <PlaceCard place={place} />
+        </Col>
+      ))}
+    </Row>
+  </div>
+))}
+
+
+      {/* 推荐相似城市 */}
+      {similarCities.length > 0 && (
+        <>
+          <h4 className="fw-bold mb-4">
+            Similar cities you might like
+          </h4>
+          <Row xs={1} md={3} className="g-4">
+            {similarCities.map((simCity) => (
+              <Col key={simCity.id}>
+                <CityCard
+                  city={simCity}
+                  // 这里不放 ♥，纯推荐卡片，如果想加 ♥ 以后可以扩展
+                  onClick={() =>
+                    navigate({
+                      pathname: `/city/${simCity.id}`,
+                      search: searchParams.toString(), // 保留原来的搜索参数
+                    })
+                  }
+                />
               </Col>
             ))}
           </Row>
-        </div>
-      ))}
+        </>
+      )}
 
-      <div className="text-center mt-5">
-        <Button variant="primary" onClick={() => navigate(-1)}>
-          ← Back
-        </Button>
-      </div>
+<div className="text-center mt-5">
+  <Button
+    variant="primary"
+    onClick={() => navigate(backTo)}
+    aria-label="Back to previous search results"
+  >
+    ← Back to Explore
+  </Button>
+</div>
     </Container>
   );
 }

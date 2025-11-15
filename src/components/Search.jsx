@@ -1,27 +1,51 @@
 // src/components/Search.jsx
 import { useEffect, useState } from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
-import { Container, Row, Col, Form, Button, Card, Badge } from "react-bootstrap";
+import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import citiesData from "../data/cities.json";
 import FilterDropdown from "./FilterDropdown";
+import CityCard from "./CityCard";
 
 export default function Search() {
-  const [searchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
   const navigate = useNavigate();
-  const query = searchParams.get("q") || "all";
 
-  const [input, setInput] = useState(query === "all" ? "" : query);
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",   // 如果不想要动画，可以改成 "auto"
+    });
+  }, []);
+
+  // 从 URL 读出当前的 query 和 filters
+  const queryFromParams = searchParams.get("q") || "all";
+  const regionsFromParams = (searchParams.get("regions") || "")
+    .split(",")
+    .filter(Boolean);
+  const tagsFromParams = (searchParams.get("tags") || "")
+    .split(",")
+    .filter(Boolean);
+  const seasonsFromParams = (searchParams.get("seasons") || "")
+    .split(",")
+    .filter(Boolean);
+
+  // 输入框文本：如果是 all 就显示空
+  const [input, setInput] = useState(
+    queryFromParams === "all" ? "" : queryFromParams
+  );
   const [results, setResults] = useState([]);
 
-  const [selectedRegions, setSelectedRegions] = useState([]);
-  const [selectedTags, setSelectedTags] = useState([]);
-  const [selectedSeasons, setSelectedSeasons] = useState([]);
+  // filters 的 state：初始值来自 URL
+  const [selectedRegions, setSelectedRegions] = useState(regionsFromParams);
+  const [selectedTags, setSelectedTags] = useState(tagsFromParams);
+  const [selectedSeasons, setSelectedSeasons] = useState(seasonsFromParams);
 
   const allRegions = Array.from(new Set(citiesData.map((c) => c.region)));
   const allTags = Array.from(new Set(citiesData.flatMap((c) => c.tags)));
   const allSeasons = ["Spring", "Summer", "Autumn", "Winter"];
 
-  // 🔹 新增收藏逻辑
+  // 🔹 收藏逻辑
   const [favorites, setFavorites] = useState([]);
 
   useEffect(() => {
@@ -41,12 +65,36 @@ export default function Search() {
     localStorage.setItem("favorites", JSON.stringify(updated));
   };
 
-  // 🔹 搜索过滤逻辑
+  // 🔧 工具函数：把当前 query + filters 同步到 URL
+  const updateURLParams = (nextQuery, regions, tags, seasons) => {
+    const params = new URLSearchParams();
+
+    const trimmed = (nextQuery || "").trim();
+    if (trimmed) {
+      params.set("q", trimmed);
+    } else {
+      params.set("q", "all");
+    }
+
+    if (regions.length > 0) {
+      params.set("regions", regions.join(","));
+    }
+    if (tags.length > 0) {
+      params.set("tags", tags.join(","));
+    }
+    if (seasons.length > 0) {
+      params.set("seasons", seasons.join(","));
+    }
+
+    setSearchParams(params);
+  };
+
+  // 🔹 搜索过滤逻辑（queryFromParams 总是跟 URL 当前一致）
   useEffect(() => {
     let filtered = citiesData;
 
-    if (query !== "all") {
-      const q = query.toLowerCase();
+    if (queryFromParams !== "all") {
+      const q = queryFromParams.toLowerCase();
       filtered = filtered.filter(
         (city) =>
           city.name.toLowerCase().includes(q) ||
@@ -57,7 +105,9 @@ export default function Search() {
     }
 
     if (selectedRegions.length > 0) {
-      filtered = filtered.filter((city) => selectedRegions.includes(city.region));
+      filtered = filtered.filter((city) =>
+        selectedRegions.includes(city.region)
+      );
     }
 
     if (selectedTags.length > 0) {
@@ -73,13 +123,28 @@ export default function Search() {
     }
 
     setResults(filtered);
-  }, [query, selectedRegions, selectedTags, selectedSeasons]);
+  }, [queryFromParams, selectedRegions, selectedTags, selectedSeasons]);
 
+  // 提交搜索按钮
   const handleSearch = (e) => {
     e.preventDefault();
-    const trimmed = input.trim();
-    const target = trimmed === "" ? "all" : encodeURIComponent(trimmed);
-    navigate(`/search?q=${target}`);
+    updateURLParams(input, selectedRegions, selectedTags, selectedSeasons);
+  };
+
+  // Filter 变化时，同时更新 state + URL
+  const handleRegionsChange = (newRegions) => {
+    setSelectedRegions(newRegions);
+    updateURLParams(input, newRegions, selectedTags, selectedSeasons);
+  };
+
+  const handleTagsChange = (newTags) => {
+    setSelectedTags(newTags);
+    updateURLParams(input, selectedRegions, newTags, selectedSeasons);
+  };
+
+  const handleSeasonsChange = (newSeasons) => {
+    setSelectedSeasons(newSeasons);
+    updateURLParams(input, selectedRegions, selectedTags, newSeasons);
   };
 
   return (
@@ -93,6 +158,7 @@ export default function Search() {
             value={input}
             onChange={(e) => setInput(e.target.value)}
             className="search-input"
+            aria-label="Search cities, countries, or tags"
           />
           <Button type="submit" variant="primary" className="ms-2">
             Search
@@ -105,19 +171,19 @@ export default function Search() {
             title="Region"
             options={allRegions}
             selected={selectedRegions}
-            onChange={setSelectedRegions}
+            onChange={handleRegionsChange}
           />
           <FilterDropdown
             title="Tag"
             options={allTags}
             selected={selectedTags}
-            onChange={setSelectedTags}
+            onChange={handleTagsChange}
           />
           <FilterDropdown
             title="Season"
             options={allSeasons}
             selected={selectedSeasons}
-            onChange={setSelectedSeasons}
+            onChange={handleSeasonsChange}
           />
         </div>
       </div>
@@ -127,49 +193,20 @@ export default function Search() {
         {results.length > 0 ? (
           <Row className="g-4">
             {results.map((city) => {
-              const isFav = favorites.includes(city.id); // ✅ 判断是否收藏
+              const isFav = favorites.includes(city.id);
               return (
                 <Col key={city.id} xs={12} sm={6} md={4}>
-                  <Card
-                    className="city-card position-relative"
-                    onClick={() => navigate(`/city/${city.id}`)}
-                  >
-                    {/* ❤️ 收藏按钮 */}
-                    <Button
-                      variant="light"
-                      className="position-absolute top-0 end-0 m-2 rounded-circle shadow-sm"
-                      onClick={(e) => toggleFavorite(city.id, e)}
-                      style={{
-                        width: "44px",
-                        height: "44px",
-                        fontSize: "1.5rem",
-                        color: isFav ? "red" : "#bbb",
-                        border: "none",
-                        zIndex: 10,
-                      }}
-                    >
-                      {isFav ? "♥" : "♡"}
-                    </Button>
-
-                    <div className="card-img-wrapper">
-                      <Card.Img
-                        src={city.image}
-                        alt={city.name}
-                        className="city-img"
-                      />
-                    </div>
-                    <Card.Body>
-                      <Card.Title>{city.name}</Card.Title>
-                      <Card.Text className="summary">{city.summary}</Card.Text>
-                      <div className="tags">
-                        {city.tags.map((t) => (
-                          <Badge key={t} bg="info" text="dark" className="me-1">
-                            #{t}
-                          </Badge>
-                        ))}
-                      </div>
-                    </Card.Body>
-                  </Card>
+                  <CityCard
+                    city={city}
+                    isFavorite={isFav}
+                    onToggleFavorite={toggleFavorite}
+                    onClick={() =>
+                      navigate({
+                        pathname: `/city/${city.id}`,
+                        search: searchParams.toString(), // 带上 q + regions + tags + seasons
+                      })
+                    }
+                  />
                 </Col>
               );
             })}
