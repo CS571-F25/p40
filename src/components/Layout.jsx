@@ -30,18 +30,24 @@ export default function Layout() {
           className="px-4 d-flex justify-content-between align-items-center"
         >
           {/* Brand靠左 */}
-          <Navbar.Brand
-            as={Link}
-            to="/"
-            onClick={handleNavClick}
-            className="fw-bold"
-            style={{
-              color: "#007bff",
-              fontSize: "1.3rem",
-            }}
-          >
-            🌍 Global Explorer
-          </Navbar.Brand>
+        <Navbar.Brand
+          as={Link}
+          to="/"
+          onClick={handleNavClick}
+          className="fw-bold d-flex align-items-center brand-logo"
+          style={{ fontSize: "1.3rem" }}
+        >
+          {/* 左边圆形图标 */}
+          <span className="brand-icon me-2">
+            <span className="brand-icon-globe" aria-hidden="true">
+              🌐
+            </span>
+          </span>
+
+  {/* 渐变蓝色文字 */}
+  <span className="brand-text">Global Explorer</span>
+</Navbar.Brand>
+
 
           {/* 折叠按钮 */}
           <Navbar.Toggle aria-controls="navbar-nav" />

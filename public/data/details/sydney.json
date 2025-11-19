@@ -13,7 +13,7 @@
         "name": "Blue Mountains National Park",
         "description": "A UNESCO World Heritage site offering dramatic cliffs and hiking trails.",
         "recommend": "Take a day trip to see the Three Sisters rock formation.",
-        "image": "https://images.unsplash.com/photo-1565058528603-5e8b57e68d52"
+        "image": "https://upload.wikimedia.org/wikipedia/commons/d/de/Blue_Mountains_National_Park_%28AU%29%2C_Three_Sisters_--_2019_--_1987-9.jpg"
       }
     ],
     "Citylife": [
@@ -21,7 +21,7 @@
         "name": "Sydney Opera House",
         "description": "World-famous performing arts venue by the harbor, known for its sail-like design.",
         "recommend": "Join a guided tour or enjoy sunset views nearby.",
-        "image": "https://images.unsplash.com/photo-1506976785307-8732e854ad04"
+        "image": "https://upload.wikimedia.org/wikipedia/commons/2/21/Sydney_%28AU%29%2C_Opera_House_--_2019_--_2152.jpg"
       }
     ]
   }

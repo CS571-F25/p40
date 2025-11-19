@@ -143,12 +143,12 @@
 
 
 /* 图片固定比例 */
-.card-img-wrapper {
-  aspect-ratio: 4 / 3;
+/* .card-img-wrapper {
+  //aspect-ratio: 4 / 3;
   overflow: hidden;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-}
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+} */
 
 
 
@@ -192,4 +192,69 @@
     transform: scale(1);
   }
 }
+
+/* 城市卡片整体的轻微抬起和阴影变化 */
+.city-card {
+  border-radius: 20px;               /* 和 inline style 一致 */
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.city-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.18);
+}
+
+/* 点击时稍微收缩一点，感觉在“按下按钮” */
+.city-card:active {
+  transform: translateY(-1px) scale(0.99);
+}
+
+/* 图片外层容器，裁掉超出的部分 */
+.card-img-wrapper {
+  overflow: hidden;
+}
+
+/* 图片本身的过渡效果 */
+.city-img {
+  width: 100%;
+  height: 300px;           /* 可以根据你卡片高度微调 */
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+/* hover 到卡片时，图片轻微放大 */
+.city-card:hover .city-img {
+  transform: scale(1.06);
+}
+/* filter 的 pill 按钮，hover 时轻轻放大一点 */
+.filter-pill {
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.filter-pill:hover {
+  transform: translateY(-1px) scale(1.04);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+}
+
+/* 整个 filter group 在小屏幕下之间有点间距 */
+.filter-group {
+  margin-bottom: 0.5rem;
+}
+
+
+
+.brand-icon-globe {
+  font-size: 1.2rem;
+  color: #ffffff;
+}
+
+/* 渐变蓝色文字 Global Explorer */
+.brand-text {
+  background: linear-gradient(90deg, #1d4ed8, #38bdf8);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent; /* 让渐变显出来 */
+}
+
 

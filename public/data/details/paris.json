@@ -13,7 +13,7 @@
         "name": "The Louvre Museum",
         "description": "Home to world-famous art pieces like the Mona Lisa and Venus de Milo.",
         "recommend": "Go early morning to avoid crowds.",
-        "image": "https://images.unsplash.com/photo-1502602898657-3e91760cbb34"
+        "image": "https://upload.wikimedia.org/wikipedia/commons/6/66/Louvre_Museum_Wikimedia_Commons.jpg"
       }
     ],
     "Architecture": [
@@ -21,7 +21,7 @@
         "name": "Eiffel Tower",
         "description": "The symbol of Paris offering panoramic views over the Seine and city skyline.",
         "recommend": "Visit at sunset when the lights turn on.",
-        "image": "https://images.unsplash.com/photo-1522098543979-ffc7f79d5a3e"
+        "image": "https://images.unsplash.com/photo-1502602898657-3e91760cbb34"
       }
     ]
   }

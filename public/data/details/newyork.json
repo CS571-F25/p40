@@ -5,7 +5,7 @@
         "name": "Joe’s Pizza",
         "description": "Classic New York-style thin crust pizza, a must-try slice for every visitor.",
         "recommend": "Grab a plain cheese slice—it’s the local favorite.",
-        "image": "https://images.unsplash.com/photo-1594007654729-407eedc4be2e"
+        "image": "https://upload.wikimedia.org/wikipedia/commons/e/e3/Joe%27s_Pizza.jpg"
       }
     ],
     "Art": [
@@ -13,7 +13,7 @@
         "name": "Museum of Modern Art (MoMA)",
         "description": "One of the world’s leading modern art museums with Van Gogh and Picasso masterpieces.",
         "recommend": "Free admission on Friday evenings.",
-        "image": "https://images.unsplash.com/photo-1541393261684-7b3c1ef1c6c3"
+        "image": "https://upload.wikimedia.org/wikipedia/commons/9/95/Museum_of_Modern_Art_New_York_2005-04-28.jpg"
       }
     ],
     "Citylife": [
@@ -21,7 +21,7 @@
         "name": "Times Square",
         "description": "The vibrant heart of Manhattan, full of lights, theaters, and street performers.",
         "recommend": "Best viewed at night for full city energy.",
-        "image": "https://images.unsplash.com/photo-1494783367193-149034c05e8f"
+        "image": "https://upload.wikimedia.org/wikipedia/commons/5/54/Times_Square_%28New_York_City%29.jpg"
       }
     ]
   }

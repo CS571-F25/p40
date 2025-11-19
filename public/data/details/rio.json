@@ -13,7 +13,7 @@
         "name": "Rio Carnival",
         "description": "A week-long celebration with parades, costumes, and samba dancing through the streets.",
         "recommend": "Book accommodation months in advance.",
-        "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d"
+        "image": "https://upload.wikimedia.org/wikipedia/commons/b/bb/Carnival_in_Rio_de_Janeiro.jpg"
       }
     ],
     "Nature": [
@@ -21,7 +21,7 @@
         "name": "Christ the Redeemer",
         "description": "An iconic 30-meter-tall statue overlooking the city from Mount Corcovado.",
         "recommend": "Go early or late to enjoy clear views.",
-        "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d"
+        "image": "https://upload.wikimedia.org/wikipedia/commons/3/3a/Unique_Moment_with_the_Moon_and_Christ_the_Redeemer_3.jpg"
       }
     ]
   }

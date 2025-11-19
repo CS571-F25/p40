@@ -1,28 +1,12 @@
 // src/components/FilterDropdown.jsx
-import { useState, useRef, useEffect } from "react";
-import { Button, Form } from "react-bootstrap";
+import { Badge, Button } from "react-bootstrap";
 
 /**
- * 精致版 Filter 下拉菜单
- * - 方框在右边（右对齐）
- * - 左文字右方框，整齐排列
- * - 圆角白底 + 阴影 + 动画
+ * Filter 按钮组（Region / Tag / Season）
+ * - 不再有外面的方框 / 卡片
+ * - 只显示标题 + 一排圆角标签
  */
 export default function FilterDropdown({ title, options, selected, onChange }) {
-  const [open, setOpen] = useState(false);
-  const ref = useRef();
-
-  // 点击外部区域关闭菜单
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (ref.current && !ref.current.contains(event.target)) {
-        setOpen(false);
-      }
-    };
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
-
   const toggleOption = (option) => {
     if (selected.includes(option)) {
       onChange(selected.filter((o) => o !== option));
@@ -34,102 +18,68 @@ export default function FilterDropdown({ title, options, selected, onChange }) {
   const isAll = selected.length === 0;
 
   return (
-    <div ref={ref} style={{ position: "relative", display: "inline-block" }}>
-      {/* 顶部按钮 */}
-      <Button
-        variant={open ? "dark" : "outline-secondary"}
-        onClick={() => setOpen(!open)}
-        style={{
-          minWidth: "110px",
-          borderRadius: "20px",
-          fontWeight: 500,
-          backgroundColor: open ? "#212529" : "white",
-          color: open ? "white" : "#333",
-          border: open ? "none" : "1px solid #ccc",
-          boxShadow: open ? "0 3px 10px rgba(0,0,0,0.15)" : "none",
-        }}
-      >
-        {title} {isAll ? "" : `(${selected.length})`}{" "}
-        <span style={{ fontSize: "0.8rem" }}>{open ? "▲" : "▼"}</span>
-      </Button>
-
-      {/* 下拉框 */}
-      {open && (
-        <div
+    <div
+      className="filter-group d-flex flex-column"
+      style={{
+        gap: "4px",
+        marginRight: "12px",
+        marginBottom: "8px",
+      }}
+    >
+      {/* 标题 + Reset（小字，只占一行） */}
+      <div className="d-flex align-items-center flex-wrap">
+        <span
           style={{
-            position: "absolute",
-            top: "110%",
-            left: "50%",
-            transform: "translateX(-50%)",
-            zIndex: 20,
-            width: "220px",
-            backgroundColor: "white",
-            borderRadius: "12px",
-            boxShadow: "0 6px 18px rgba(0,0,0,0.15)",
-            padding: "14px 18px",
-            animation: "fadeIn 0.15s ease-out",
+            fontSize: "0.8rem",
+            fontWeight: 600,
+            color: "#6c757d",
+            marginRight: "8px",
           }}
         >
-          <div style={{ borderBottom: "1px solid #eee", marginBottom: "10px" }}>
-            <h6
-              style={{
-                fontSize: "0.95rem",
-                fontWeight: "600",
-                marginBottom: "6px",
-              }}
-            >
-              {title}
-            </h6>
-          </div>
+          {title}
+          {!isAll && ` (${selected.length})`}
+        </span>
 
-          {/* 选项行 */}
-          <div>
-            {options.map((opt, idx) => (
-              <div
-                key={idx}
-                className="filter-row"
-                style={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                  marginBottom: "6px",
-                  fontSize: "0.9rem",
-                  cursor: "pointer",
-                }}
-                onClick={() => toggleOption(opt)}
-              >
-                <span>{opt}</span>
-                <Form.Check
-                  type="checkbox"
-                  checked={selected.includes(opt)}
-                  onChange={() => toggleOption(opt)}
-                  style={{
-                    margin: 0,
-                    padding: 0,
-                    pointerEvents: "none", // 防止双击冲突
-                  }}
-                />
-              </div>
-            ))}
-          </div>
+        {!isAll && (
+          <Button
+            variant="link"
+            size="sm"
+            onClick={() => onChange([])}
+            style={{
+              fontSize: "0.75rem",
+              padding: 0,
+              textDecoration: "none",
+            }}
+          >
+            Reset
+          </Button>
+        )}
+      </div>
 
-          {/* Reset */}
-          <div style={{ textAlign: "right", marginTop: "10px" }}>
-            <Button
-              size="sm"
-              variant="link"
-              onClick={() => onChange([])}
+      {/* 选项 pill 按钮 */}
+      <div className="d-flex flex-wrap gap-2">
+        {options.map((opt) => {
+          const active = selected.includes(opt);
+          return (
+            <Badge
+              key={opt}
+              pill
+              bg={active ? "primary" : "light"}
+              text={active ? "light" : "dark"}
+              className="filter-pill"
+              onClick={() => toggleOption(opt)}
               style={{
+                cursor: "pointer",
                 fontSize: "0.8rem",
-                textDecoration: "none",
-                color: "#0d6efd",
+                padding: "0.35rem 0.75rem",
+                border: active ? "none" : "1px solid #e0e0e0",
               }}
             >
-              Reset
-            </Button>
-          </div>
-        </div>
-      )}
+              {opt}
+            </Badge>
+          );
+        })}
+      </div>
     </div>
   );
 }

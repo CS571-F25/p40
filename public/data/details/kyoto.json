@@ -5,7 +5,7 @@
         "name": "Kaiseki Cuisine",
         "description": "A multi-course Japanese haute cuisine showcasing local ingredients and elegant presentation.",
         "recommend": "Try it in a traditional ryokan for authenticity.",
-        "image": "https://images.unsplash.com/photo-1606131731679-6b1d4ecfdc5f"
+        "image": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Kaiseki_001.jpg"
       }
     ],
     "Culture": [
@@ -21,7 +21,7 @@
         "name": "Fushimi Inari Shrine",
         "description": "Renowned for its thousands of red torii gates winding through the forest.",
         "recommend": "Visit early morning to avoid the crowd.",
-        "image": "https://images.unsplash.com/photo-1549887534-8a8b3b0d1d5a"
+        "image": "https://upload.wikimedia.org/wikipedia/commons/0/0e/Torii_path_with_lantern_at_Fushimi_Inari_Taisha_Shrine%2C_Kyoto%2C_Japan.jpg"
       }
     ]
   }

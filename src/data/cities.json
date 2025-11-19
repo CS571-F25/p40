@@ -29,7 +29,7 @@
     "summary": "The city that never sleeps — from Times Square to Central Park. Discover art at MoMA, Broadway shows, and iconic New York pizza and bagels.",
     "tags": ["Citylife", "Food", "Art"],
     "bestSeasons": ["Autumn", "Winter"],
-    "image": "https://images.unsplash.com/photo-1549921296-3c0c9e0d9a66",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/d/dd/Long_Island_City_New_York_May_2015_panorama_3.jpg",
     "detailFile": "newyork.json"
   },
   {
@@ -51,7 +51,7 @@
     "summary": "A sunny harbor city where modern life meets ocean breeze. Surf at Bondi Beach, see the Sydney Opera House, and enjoy local seafood under blue skies.",
     "tags": ["Beach", "Nature", "Citylife"],
     "bestSeasons": ["Summer", "Spring"],
-    "image": "https://images.unsplash.com/photo-1506976785307-8732e854ad04",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/7/7c/Sydney_Opera_House_-_Dec_2008.jpg",
     "detailFile": "sydney.json"
   },
   {
@@ -73,7 +73,7 @@
     "summary": "Vibrant energy, samba music, and breathtaking landscapes. Visit Copacabana Beach, Christ the Redeemer, and enjoy Brazilian barbecue and tropical festivals.",
     "tags": ["Beach", "Festival", "Nature"],
     "bestSeasons": ["Summer"],
-    "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/9/94/Igreja_de_Nossa_Senhora_do_Monte_do_Carmo%2C_Rio_de_Janeiro%2C_Brasil.jpg",
     "detailFile": "rio.json"
   },
   {
