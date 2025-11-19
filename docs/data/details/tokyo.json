@@ -11,7 +11,7 @@
         "name": "Ramen Street at Tokyo Station",
         "description": "A paradise for ramen lovers offering different regional broths and noodle styles.",
         "recommend": "Shoyu ramen from Tokyo-style shops is a must.",
-        "image": "https://images.unsplash.com/photo-1604909053190-f1d9f1d0459a"
+        "image": "https://upload.wikimedia.org/wikipedia/commons/b/b0/Shio_Ramen_%40_Hirugao_%40_Tokyo_Ramen_Street_%40_Tokyo_station_%2813973242668%29.jpg"
       }
     ],
     "Culture": [
@@ -19,7 +19,7 @@
         "name": "Meiji Shrine",
         "description": "A peaceful Shinto shrine surrounded by forest, offering a quiet escape from the busy city.",
         "recommend": "Visit early morning for the best experience.",
-        "image": "https://images.unsplash.com/photo-1587223962930-37031b802763"
+        "image": "https://upload.wikimedia.org/wikipedia/commons/5/56/Meiji_shrine_in_August_2007_5.jpg"
       }
     ],
     "Technology": [
@@ -27,7 +27,7 @@
         "name": "Akihabara",
         "description": "Tokyo’s electric town full of tech shops, gaming arcades, and anime culture.",
         "recommend": "Explore the latest gadgets and themed cafés.",
-        "image": "https://images.unsplash.com/photo-1505150892987-424388e9b7f3"
+        "image": "https://upload.wikimedia.org/wikipedia/commons/e/ee/Toranoana_Akihabara_20101223.jpg"
       }
     ]
   }
