@@ -81,6 +81,7 @@ export default function Search() {
     }
     setFavorites(updated);
     localStorage.setItem("favorites", JSON.stringify(updated));
+    window.dispatchEvent(new Event("favoritesUpdated"));
   };
 
   // 把当前搜索条件写回 URL

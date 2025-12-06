@@ -33,6 +33,7 @@ export default function CityDetail() {
   useEffect(() => {
     const stored = JSON.parse(localStorage.getItem("favorites")) || [];
     setFavorites(stored);
+    window.dispatchEvent(new Event("favoritesUpdated"));
   }, []);
 
   // 控制主按钮的动画
@@ -53,6 +54,7 @@ export default function CityDetail() {
 
     setFavorites(updated);
     localStorage.setItem("favorites", JSON.stringify(updated));
+    window.dispatchEvent(new Event("favoritesUpdated"));
 
     if (willAnimate) {
       setAnimate(true);

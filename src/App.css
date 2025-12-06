@@ -257,4 +257,44 @@
   color: transparent; /* 让渐变显出来 */
 }
 
+/* ====== 顶部导航样式 ====== */
+
+.navbar-nav .nav-link.nav-link-pill {
+  border-radius: 999px;
+  padding: 0.35rem 0.95rem;
+  font-weight: 500;
+  color: #495057;              /* 默认文字颜色 */
+  transition: background-color 0.18s ease, color 0.18s ease;
+}
+
+/* 悬停：灰色背景，文字稍深 */
+.navbar-nav .nav-link.nav-link-pill:hover {
+  background-color: #f1f3f5;
+  color: #212529;
+}
+
+/* 当前激活：淡蓝背景 + 蓝色文字 */
+.navbar-nav .nav-link.nav-link-pill.active {
+  background-color: rgba(13, 110, 253, 0.08); /* bootstrap primary 变淡 */
+  color: #0d6efd;
+}
+
+/* “Favorites” 右上角数字徽章 */
+.favorites-link .favorites-count-badge {
+  position: absolute;
+  top: -6px;
+  right: -14px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 4px;
+  border-radius: 999px;
+  background-color: #0d6efd;  /* bootstrap primary 蓝 */
+  color: #fff;
+  font-size: 0.7rem;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
 

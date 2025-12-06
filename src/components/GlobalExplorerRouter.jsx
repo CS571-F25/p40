@@ -6,6 +6,8 @@ import Search from "./Search";
 import Favorites from "./Favorites";
 import CityDetail from "./CityDetail";
 import AISearch from "./AISearch";
+import AboutMe from "./AboutMe";
+
 
 export default function GlobalExplorerRouter() {
   return (
@@ -18,6 +20,7 @@ export default function GlobalExplorerRouter() {
           <Route path="favorites" element={<Favorites />} />
           <Route path="city/:id" element={<CityDetail />} />
           <Route path="/ai-search" element={<AISearch />} />
+          <Route path="about" element={<AboutMe />} />
           <Route path="*" element={<h2 className="text-center mt-5">404: Page Not Found</h2>} />
         </Route>
       </Routes>
