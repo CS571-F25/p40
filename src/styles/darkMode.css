@@ -227,6 +227,9 @@
 [data-theme="dark"] .badge.bg-primary {
   background-color: #3a4080 !important;
 }
+[data-theme="dark"] .badge.text-dark {
+  color: #e0e0e0 !important;
+}
 
 /* ===== 边框和分隔线 ===== */
 [data-theme="dark"] .border,
