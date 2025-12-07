@@ -1,6 +1,7 @@
 import { Container, Button, Row, Col, Card } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { Search, Sparkles, Heart, Globe } from "lucide-react";
+import "./Home.css";
 
 export default function Home() {
   const navigate = useNavigate();
@@ -67,7 +68,7 @@ export default function Home() {
         <h2 className="text-center fw-bold mb-5">Why Global Explorer?</h2>
         <Row className="g-4">
           <Col md={4}>
-            <Card className="border-0 shadow-sm h-100 text-center p-4">
+            <Card className="border-0 shadow-sm h-100 text-center p-4 home-feature-card">
               <Card.Body>
                 <div className="mb-3">
                   <Globe size={48} className="text-primary" />
@@ -80,7 +81,7 @@ export default function Home() {
             </Card>
           </Col>
           <Col md={4}>
-            <Card className="border-0 shadow-sm h-100 text-center p-4">
+            <Card className="border-0 shadow-sm h-100 text-center p-4 home-feature-card">
               <Card.Body>
                 <div className="mb-3">
                   <Sparkles size={48} className="text-primary" />
@@ -93,7 +94,7 @@ export default function Home() {
             </Card>
           </Col>
           <Col md={4}>
-            <Card className="border-0 shadow-sm h-100 text-center p-4">
+            <Card className="border-0 shadow-sm h-100 text-center p-4 home-feature-card">
               <Card.Body>
                 <div className="mb-3">
                   <Heart size={48} className="text-danger" />

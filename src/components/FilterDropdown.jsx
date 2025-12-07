@@ -32,7 +32,7 @@ export default function FilterDropdown({ title, options, selected, onChange }) {
           style={{
             fontSize: "0.8rem",
             fontWeight: 600,
-            color: "#6c757d",
+            color: "var(--color-text-muted, #6c757d)",
             marginRight: "8px",
           }}
         >
@@ -73,6 +73,7 @@ export default function FilterDropdown({ title, options, selected, onChange }) {
                 fontSize: "0.8rem",
                 padding: "0.35rem 0.75rem",
                 border: active ? "none" : "1px solid #e0e0e0",
+                transition: "all 0.2s ease",
               }}
             >
               {opt}

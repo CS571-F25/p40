@@ -5,6 +5,7 @@ import { Container, Row, Col, Image, Card, Button, Badge } from "react-bootstrap
 import citiesData from "../data/cities.json";
 import CityCard from "./CityCard";
 import PlaceCard from "./PlaceCard";
+import CommentSection from "./CommentSection";
 
 export default function CityDetail() {
   const { id } = useParams();
@@ -156,7 +157,17 @@ export default function CityDetail() {
           {/* 标签 */}
           <div className="mb-3">
             {city.tags.map((tag) => (
-              <Badge key={tag} bg="info" text="dark" className="me-2">
+              <Badge 
+                key={tag} 
+                bg="info" 
+                text="dark" 
+                className="me-2 city-tag"
+                style={{
+                  cursor: "pointer",
+                  border: "2px solid transparent",
+                  transition: "all 0.2s ease",
+                }}
+              >
                 #{tag}
               </Badge>
             ))}
@@ -222,6 +233,9 @@ export default function CityDetail() {
           </Row>
         </>
       )}
+
+      {/* 评论系统 */}
+      <CommentSection cityId={city.id} cityName={city.name} />
 
 <div className="text-center mt-5">
   <Button

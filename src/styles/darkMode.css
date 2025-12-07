@@ -1,0 +1,383 @@
+/* src/styles/darkMode.css */
+
+/* ===== 深色模式根元素样式 ===== */
+[data-theme="dark"] {
+  --color-bg: #1a1a1a;
+  --color-bg-secondary: #2d2d2d;
+  --color-text: #e0e0e0;
+  --color-text-muted: #999;
+  --color-border: #444;
+  --color-card-bg: #252525;
+}
+
+/* ===== 主题变量（浅色模式默认） ===== */
+:root {
+  --color-bg: #ffffff;
+  --color-bg-secondary: #f5f5f5;
+  --color-text: #333333;
+  --color-text-muted: #666666;
+  --color-border: #ddd;
+  --color-card-bg: #ffffff;
+}
+
+/* ===== 全局背景和文字 ===== */
+[data-theme="dark"] body {
+  background-color: #1a1a1a;
+  color: #e0e0e0;
+}
+
+[data-theme="dark"] {
+  background-color: #1a1a1a;
+  color: #e0e0e0;
+}
+
+/* ===== 卡片和容器 ===== */
+[data-theme="dark"] .card {
+  background-color: #252525;
+  border-color: #444;
+  color: #e0e0e0;
+}
+
+[data-theme="dark"] .card-body {
+  background-color: #252525;
+  color: #e0e0e0;
+}
+
+[data-theme="dark"] .card-header {
+  background-color: #2d2d2d;
+  border-color: #444;
+  color: #e0e0e0;
+}
+
+[data-theme="dark"] .card-footer {
+  background-color: #2d2d2d;
+  border-color: #444;
+  color: #e0e0e0;
+}
+
+/* ===== 表单元素 ===== */
+[data-theme="dark"] .form-control,
+[data-theme="dark"] .form-select,
+[data-theme="dark"] textarea.form-control {
+  background-color: #2d2d2d;
+  border-color: #444;
+  color: #e0e0e0;
+}
+
+[data-theme="dark"] .form-control:focus,
+[data-theme="dark"] .form-select:focus {
+  background-color: #2d2d2d;
+  border-color: #646cff;
+  color: #e0e0e0;
+  box-shadow: 0 0 0 0.2rem rgba(100, 108, 255, 0.25);
+}
+
+[data-theme="dark"] .form-control::placeholder {
+  color: #999;
+}
+
+[data-theme="dark"] .form-label {
+  color: #e0e0e0;
+}
+
+/* ===== 按钮 ===== */
+[data-theme="dark"] .btn-primary {
+  background-color: #646cff;
+  border-color: #646cff;
+  color: #fff;
+}
+
+[data-theme="dark"] .btn-primary:hover {
+  background-color: #4f5fcf;
+  border-color: #4f5fcf;
+}
+
+[data-theme="dark"] .btn-secondary {
+  background-color: #555;
+  border-color: #555;
+  color: #fff;
+}
+
+[data-theme="dark"] .btn-secondary:hover {
+  background-color: #666;
+  border-color: #666;
+}
+
+[data-theme="dark"] .btn-outline-primary {
+  color: #646cff;
+  border-color: #646cff;
+}
+
+[data-theme="dark"] .btn-outline-primary:hover {
+  background-color: #646cff;
+  border-color: #646cff;
+  color: #fff;
+}
+
+[data-theme="dark"] .btn-outline-secondary {
+  color: #999;
+  border-color: #555;
+}
+
+[data-theme="dark"] .btn-outline-secondary:hover {
+  background-color: #555;
+  border-color: #555;
+  color: #fff;
+}
+
+[data-theme="dark"] .btn-outline-danger {
+  color: #ff6b6b;
+  border-color: #ff6b6b;
+}
+
+[data-theme="dark"] .btn-outline-danger:hover {
+  background-color: #ff6b6b;
+  border-color: #ff6b6b;
+  color: #fff;
+}
+
+[data-theme="dark"] .btn-danger {
+  background-color: #ff6b6b;
+  border-color: #ff6b6b;
+}
+
+[data-theme="dark"] .btn-danger:hover {
+  background-color: #ff5252;
+  border-color: #ff5252;
+}
+
+/* ===== 导航栏 ===== */
+[data-theme="dark"] .navbar {
+  background-color: #252525 !important;
+  border-bottom: 1px solid #444;
+}
+
+[data-theme="dark"] .navbar-design {
+  background-color: #252525 !important;
+  border-bottom-color: #444;
+}
+
+[data-theme="dark"] .navbar-brand {
+  color: #e0e0e0 !important;
+}
+
+[data-theme="dark"] .navbar-brand:hover {
+  color: #646cff !important;
+}
+
+[data-theme="dark"] .nav-link {
+  color: #ccc !important;
+  transition: all 0.2s ease;
+}
+
+[data-theme="dark"] .nav-link:hover {
+  color: #646cff !important;
+  background-color: rgba(100, 108, 255, 0.12) !important;
+}
+
+[data-theme="dark"] .nav-link.active {
+  color: #646cff !important;
+  background-color: rgba(100, 108, 255, 0.12) !important;
+}
+
+[data-theme="dark"] .navbar-toggler {
+  border-color: #555;
+}
+
+[data-theme="dark"] .navbar-toggler:focus {
+  box-shadow: 0 0 0 0.25rem rgba(100, 108, 255, 0.25);
+}
+
+/* ===== 警告和提示 ===== */
+[data-theme="dark"] .alert-success {
+  background-color: #1e5e3f;
+  border-color: #2d8659;
+  color: #a8f5ce;
+}
+
+[data-theme="dark"] .alert-danger {
+  background-color: #5e1e1e;
+  border-color: #8d2d2d;
+  color: #f5a8a8;
+}
+
+[data-theme="dark"] .alert-warning {
+  background-color: #5e4a1e;
+  border-color: #8d7a2d;
+  color: #f5d5a8;
+}
+
+[data-theme="dark"] .alert-info {
+  background-color: #1e3e5e;
+  border-color: #2d5d8d;
+  color: #a8d5f5;
+}
+
+/* ===== 徽章和标签 ===== */
+[data-theme="dark"] .badge {
+  background-color: #444;
+  color: #e0e0e0;
+}
+
+[data-theme="dark"] .badge.bg-info {
+  background-color: #2d5d8d !important;
+  color: #a8d5f5;
+}
+
+[data-theme="dark"] .badge.bg-primary {
+  background-color: #3a4080 !important;
+}
+
+/* ===== 边框和分隔线 ===== */
+[data-theme="dark"] .border,
+[data-theme="dark"] .border-top,
+[data-theme="dark"] .border-bottom,
+[data-theme="dark"] .border-start,
+[data-theme="dark"] .border-end {
+  border-color: #444 !important;
+}
+
+[data-theme="dark"] hr {
+  border-color: #444;
+}
+
+/* ===== 评论相关样式 ===== */
+[data-theme="dark"] .comment-item {
+  background-color: #252525;
+  border-color: #444;
+}
+
+[data-theme="dark"] .comment-author {
+  color: #e0e0e0;
+}
+
+[data-theme="dark"] .comment-text {
+  color: #ccc;
+}
+
+[data-theme="dark"] .comment-form-container {
+  background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+  border-color: #444;
+}
+
+[data-theme="dark"] .comment-form-container h5 {
+  color: #e0e0e0;
+}
+
+/* ===== 链接 ===== */
+[data-theme="dark"] a {
+  color: #646cff;
+}
+
+[data-theme="dark"] a:hover {
+  color: #7d85ff;
+}
+
+/* ===== 文本颜色辅助类 ===== */
+[data-theme="dark"] .text-muted {
+  color: #999 !important;
+}
+
+[data-theme="dark"] .text-secondary {
+  color: #999 !important;
+}
+
+/* ===== 输入框和搜索栏 ===== */
+[data-theme="dark"] .input-group .form-control,
+[data-theme="dark"] .input-group .btn {
+  background-color: #2d2d2d;
+  border-color: #444;
+  color: #e0e0e0;
+}
+
+/* ===== 下拉菜单 ===== */
+[data-theme="dark"] .dropdown-menu {
+  background-color: #252525;
+  border-color: #444;
+}
+
+[data-theme="dark"] .dropdown-item {
+  color: #e0e0e0;
+}
+
+[data-theme="dark"] .dropdown-item:hover,
+[data-theme="dark"] .dropdown-item.active {
+  background-color: #3d3d3d;
+  color: #646cff;
+}
+
+[data-theme="dark"] .dropdown-divider {
+  border-color: #444;
+}
+
+/* ===== 图片和媒体 ===== */
+[data-theme="dark"] img {
+  opacity: 0.95;
+}
+
+/* ===== 特殊背景色 ===== */
+[data-theme="dark"] .bg-light {
+  background-color: #2d2d2d !important;
+  color: #e0e0e0;
+}
+
+[data-theme="dark"] .bg-secondary {
+  background-color: #3d3d3d !important;
+  color: #e0e0e0;
+}
+
+/* ===== Home 和 Logo 相关 ===== */
+[data-theme="dark"] .home-link {
+  color: #e0e0e0;
+}
+
+[data-theme="dark"] .home-link:hover {
+  background-color: rgba(100, 108, 255, 0.12);
+  color: #646cff;
+}
+
+/* ===== 平滑过渡 ===== */
+html,
+body,
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* 禁用某些元素的过渡以保持流畅性 */
+[data-theme] input,
+[data-theme] button {
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+/* ===== Filter 卡片深色模式 ===== */
+[data-theme="dark"] .bg-white {
+  background-color: #252525 !important;
+  border-color: #444 !important;
+  color: #e0e0e0;
+}
+
+[data-theme="dark"] .border {
+  border-color: #444 !important;
+}
+
+/* Filter 中的 badge 文字在深色模式下改变 */
+[data-theme="dark"] .filter-pill {
+  color: #e0e0e0 !important;
+}
+
+/* Badge 在深色模式下的文字颜色 */
+[data-theme="dark"] .badge {
+  color: #e0e0e0 !important;
+}
+
+[data-theme="dark"] .badge.bg-light {
+  background-color: #2d2d2d !important;
+  color: #e0e0e0 !important;
+  border-color: #444 !important;
+}
+
+/* Filter 标题和文字 */
+[data-theme="dark"] h5 {
+  color: #e0e0e0;
+}
+

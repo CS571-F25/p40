@@ -1,0 +1,346 @@
+/* src/styles/designSystem.css */
+
+/* ===== 统一设计 Token ===== */
+:root {
+  /* 颜色 */
+  --primary-color: #646cff;
+  --primary-hover: #4f5fcf;
+  --primary-light: rgba(100, 108, 255, 0.08);
+  
+  --success-color: #28a745;
+  --danger-color: #dc3545;
+  --warning-color: #ffc107;
+  --info-color: #17a2b8;
+  
+  --border-radius-sm: 6px;
+  --border-radius-md: 12px;
+  --border-radius-lg: 20px;
+  
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+  
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+}
+
+/* ===== 导航栏统一设计 ===== */
+.navbar-design {
+  box-shadow: var(--shadow-sm);
+  transition: background-color var(--transition-normal), border-color var(--transition-normal);
+}
+
+.navbar-design .nav-link {
+  font-weight: 500;
+  padding: 0.5rem 1rem !important;
+  border-radius: var(--border-radius-sm);
+  transition: all var(--transition-fast);
+  color: #333 !important;
+}
+
+.navbar-design .nav-link:hover {
+  color: var(--primary-color) !important;
+  background-color: var(--primary-light);
+}
+
+.navbar-design .nav-link.active {
+  color: var(--primary-color) !important;
+  background-color: var(--primary-light);
+  font-weight: 600;
+}
+
+/* 深色模式下的导航栏 */
+[data-theme="dark"] .navbar-design .nav-link {
+  color: #ccc !important;
+}
+
+[data-theme="dark"] .navbar-design .nav-link:hover,
+[data-theme="dark"] .navbar-design .nav-link.active {
+  color: var(--primary-color) !important;
+  background-color: rgba(100, 108, 255, 0.12);
+}
+
+/* ===== 统一按钮设计 ===== */
+.btn {
+  border-radius: var(--border-radius-sm);
+  font-weight: 500;
+  padding: 0.6rem 1.2rem;
+  transition: all var(--transition-fast);
+  border: none;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+  border-color: var(--primary-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(100, 108, 255, 0.3);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(100, 108, 255, 0.2);
+}
+
+.btn-outline-primary {
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.btn-outline-primary:hover {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: white;
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  border-color: #6c757d;
+  color: white;
+}
+
+.btn-secondary:hover {
+  background-color: #5a6268;
+  border-color: #5a6268;
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-danger {
+  background-color: var(--danger-color);
+  border-color: var(--danger-color);
+  color: white;
+}
+
+.btn-danger:hover {
+  background-color: #c82333;
+  border-color: #c82333;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(220, 53, 69, 0.3);
+}
+
+.btn-success {
+  background-color: var(--success-color);
+  border-color: var(--success-color);
+}
+
+.btn-success:hover {
+  background-color: #218838;
+  border-color: #218838;
+  transform: translateY(-1px);
+}
+
+/* 禁用状态 */
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ===== 统一卡片设计 ===== */
+.card {
+  border: none;
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-normal);
+  overflow: hidden;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.card-body {
+  padding: 1.5rem;
+}
+
+.card-header {
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #e9ecef;
+  font-weight: 600;
+}
+
+.card-footer {
+  background-color: #f8f9fa;
+  border-top: 1px solid #e9ecef;
+}
+
+/* 深色模式卡片 */
+[data-theme="dark"] .card {
+  background-color: #252525;
+  border-color: #444;
+}
+
+[data-theme="dark"] .card-header {
+  background-color: #2d2d2d;
+  border-bottom-color: #444;
+  color: #e0e0e0;
+}
+
+[data-theme="dark"] .card-footer {
+  background-color: #2d2d2d;
+  border-top-color: #444;
+  color: #e0e0e0;
+}
+
+/* ===== 图片样式 ===== */
+.card img {
+  object-fit: cover;
+  height: 200px;
+  width: 100%;
+}
+
+/* ===== 输入框和表单 ===== */
+.form-control,
+.form-select {
+  border-radius: var(--border-radius-sm);
+  border: 1px solid #ddd;
+  padding: 0.6rem 0.9rem;
+  font-size: 0.95rem;
+  transition: all var(--transition-fast);
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.2rem rgba(100, 108, 255, 0.25);
+}
+
+/* ===== 徽章 ===== */
+.badge {
+  border-radius: 20px;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.badge.bg-secondary {
+  background-color: #6c757d !important;
+  color: white !important;
+}
+
+/* Filter 中的 badge 深色模式文字颜色改变 */
+[data-theme="dark"] .filter-pill[text="dark"] {
+  color: #e0e0e0 !important;
+}
+
+[data-theme="dark"] .badge.bg-secondary {
+  background-color: #6c757d !important;
+  color: white !important;
+}
+
+[data-theme="dark"] .badge.bg-primary {
+  background-color: var(--primary-color) !important;
+  color: white !important;
+}
+
+/* ===== 链接 ===== */
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--primary-hover);
+  text-decoration: underline;
+}
+
+/* ===== 分隔线 ===== */
+hr {
+  border-color: #e9ecef;
+  margin: 2rem 0;
+}
+
+[data-theme="dark"] hr {
+  border-color: #444;
+}
+
+/* ===== 响应式设计 ===== */
+@media (max-width: 576px) {
+  .btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .card-body {
+    padding: 1rem;
+  }
+  
+  .navbar-design .nav-link {
+    padding: 0.4rem 0.8rem !important;
+    font-size: 0.9rem;
+  }
+}
+
+/* ===== 动画和过渡 ===== */
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: slideInUp 0.5s ease-out;
+}
+
+/* ===== 滚动条样式 ===== */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-track {
+  background: #2d2d2d;
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb {
+  background: #555;
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb:hover {
+  background: #777;
+}
+
+/* ===== 功能区域图标圆形容器对齐 ===== */
+.feature-icon-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  padding: 0;
+}
+
+.feature-icon {
+  line-height: 1;
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+

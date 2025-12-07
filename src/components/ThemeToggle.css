@@ -1,0 +1,61 @@
+/* src/components/ThemeToggle.css */
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: 1px solid #ddd;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #333;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.theme-toggle:hover {
+  background-color: rgba(100, 108, 255, 0.08);
+  border-color: #646cff;
+  color: #646cff;
+}
+
+.theme-toggle-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.theme-icon {
+  transition: transform 0.3s ease;
+}
+
+.theme-toggle:active .theme-icon {
+  transform: rotate(180deg);
+}
+
+/* 深色模式下的样式 */
+[data-theme="dark"] .theme-toggle {
+  border-color: #555;
+  color: #e0e0e0;
+}
+
+[data-theme="dark"] .theme-toggle:hover {
+  background-color: rgba(100, 108, 255, 0.15);
+  border-color: #646cff;
+  color: #646cff;
+}
+
+/* 响应式设计 */
+@media (max-width: 576px) {
+  .theme-toggle {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+
+  .theme-toggle .theme-icon {
+    width: 16px;
+    height: 16px;
+  }
+}

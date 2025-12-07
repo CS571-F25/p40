@@ -68,14 +68,19 @@ export default function AboutMe() {
                     <Card.Body className="p-4">
                       <div className="d-flex align-items-center mb-3">
                         <div
-                          className="rounded-circle d-flex align-items-center justify-content-center me-3"
+                          className="rounded-circle me-3 feature-icon-circle"
                           style={{
                             width: 48,
                             height: 48,
                             backgroundColor: "rgba(13,110,253,0.08)",
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            flexShrink: 0,
+                            marginTop: "8px",
                           }}
                         >
-                          <Icon size={24} className="text-primary" />
+                          <Icon size={24} className="text-primary feature-icon" style={{ lineHeight: 1, display: "block", transform: "translateY(6px)" }} />
                         </div>
                         <h3 className="h5 mb-0 fw-semibold">{feature.title}</h3>
                       </div>

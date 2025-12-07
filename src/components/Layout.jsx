@@ -2,9 +2,12 @@
 import { Outlet, Link, useLocation } from "react-router-dom";
 import { Navbar, Nav, Container } from "react-bootstrap";
 import { useState, useEffect } from "react";
+import { useTheme } from "../context/ThemeContext";
+import ThemeToggle from "./ThemeToggle";
 
 export default function Layout() {
   const location = useLocation();
+  const { isDark, isBadger } = useTheme();
   const [expanded, setExpanded] = useState(false);
   const [favoritesCount, setFavoritesCount] = useState(0);
 
@@ -44,18 +47,33 @@ export default function Layout() {
     };
   }, []);
 
+  // 根据主题设置导航栏样式
+  const getNavbarColor = () => {
+    if (isBadger) return "#FFFFFF";
+    if (isDark) return "#252525";
+    return "#ffffff";
+  };
+
+  const getNavbarBorderColor = () => {
+    if (isBadger) return "#C5050C";
+    if (isDark) return "#444";
+    return "#e9ecef";
+  };
+
   return (
     <>
       <Navbar
-        bg="white"
+        bg={isDark ? "dark" : "white"}
         expand="lg"
         fixed="top"
-        className="border-bottom"
+        className={`border-bottom navbar-design ${isDark ? "navbar-dark" : ""}`}
         expanded={expanded}
         onToggle={(next) => setExpanded(next)}
         style={{
           padding: "0.5rem 0",
           letterSpacing: "0.2px",
+          backgroundColor: getNavbarColor(),
+          borderBottomColor: getNavbarBorderColor(),
         }}
       >
         <Container
@@ -70,11 +88,7 @@ export default function Layout() {
             className="fw-bold d-flex align-items-center brand-logo"
             style={{ fontSize: "1.3rem" }}
           >
-            <span className="brand-icon me-2">
-              <span className="brand-icon-globe" aria-hidden="true">
-                🌐
-              </span>
-            </span>
+            <span className="brand-icon me-2">🌍</span>
             <span className="brand-text">Global Explorer</span>
           </Navbar.Brand>
 
@@ -144,6 +158,9 @@ export default function Layout() {
                 About Us
               </Nav.Link>
 
+              <div className="mx-2 d-lg-inline d-flex justify-content-center">
+                <ThemeToggle />
+              </div>
 
 
             </Nav>

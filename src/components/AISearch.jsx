@@ -12,6 +12,7 @@ import {
   Badge,
 } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import { useTheme } from "../context/ThemeContext";
 import citiesData from "../data/cities.json";
 import CityCard from "./CityCard";
 
@@ -41,6 +42,7 @@ function extractJsonFromText(text) {
 
 export default function AISearch() {
   const navigate = useNavigate();
+  const { isBadger } = useTheme();
 
   const [description, setDescription] = useState("");
   const [aiRegions, setAiRegions] = useState([]);
@@ -282,8 +284,8 @@ Output ONLY the JSON object.
           <div
             className="d-inline-flex align-items-center px-3 py-1 rounded-pill mb-3"
             style={{
-              backgroundColor: "rgba(13,110,253,0.08)",
-              color: "#0d6efd",
+              backgroundColor: isBadger ? "rgba(197, 5, 12, 0.08)" : "rgba(13,110,253,0.08)",
+              color: isBadger ? "#C5050C" : "#0d6efd",
               fontSize: "0.85rem",
               fontWeight: 500,
             }}
