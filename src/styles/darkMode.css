@@ -1,3 +1,21 @@
+[data-theme="dark"] .form-label,
+[data-theme="dark"] label,
+[data-theme="dark"] .form-text {
+  color: #e0e0e0 !important;
+}
+[data-theme="dark"] .form-text.text-muted {
+  color: #b0b0b0 !important;
+}
+[data-theme="dark"] .form-control,
+[data-theme="dark"] .form-select {
+  background-color: #1f1f1f !important;
+  color: #e6e6e6 !important;
+  border-color: #3a3a3a !important;
+}
+[data-theme="dark"] .form-control::placeholder,
+[data-theme="dark"] .form-select::placeholder {
+  color: #9a9a9a !important;
+}
 /* src/styles/darkMode.css */
 
 /* ===== 深色模式根元素样式 ===== */
@@ -230,6 +248,37 @@
 [data-theme="dark"] .badge.text-dark {
   color: #e0e0e0 !important;
 }
+
+/* ===== Comment section dark mode overrides ===== */
+[data-theme="dark"] .comment-section {
+  border-top-color: #3a3a3a !important;
+}
+[data-theme="dark"] .comments-header h2,
+[data-theme="dark"] .comments-list h5 {
+  color: #e6e6e6 !important;
+  border-bottom-color: #3a3a3a !important;
+}
+[data-theme="dark"] .rating-summary-card {
+  background: linear-gradient(135deg, #2a2a2a 0%, #1f1f1f 100%) !important;
+}
+[data-theme="dark"] .rating-number { color: #ffd666 !important; }
+[data-theme="dark"] .star-lg { color: #3a3a3a !important; }
+[data-theme="dark"] .star-lg.filled { color: #ffd666 !important; }
+[data-theme="dark"] .rating-label { color: #b0b0b0 !important; }
+[data-theme="dark"] .rating-bar-container { background-color: #3a3a3a !important; }
+[data-theme="dark"] .rating-count { color: #9a9a9a !important; }
+
+/* CommentItem card */
+[data-theme="dark"] .comment-item {
+  background-color: #1f1f1f !important;
+}
+[data-theme="dark"] .comment-author { color: #e6e6e6 !important; }
+[data-theme="dark"] .rating-text { color: #b0b0b0 !important; }
+[data-theme="dark"] .comment-text { color: #d0d0d0 !important; }
+[data-theme="dark"] .comment-footer { border-top-color: #3a3a3a !important; }
+[data-theme="dark"] .comment-actions .btn-link { color: #b0b0b0 !important; }
+[data-theme="dark"] .comment-actions .btn-link:hover { color: #9fb6ff !important; }
+[data-theme="dark"] .helpful-count { color: #b0b0b0 !important; }
 
 /* ===== 边框和分隔线 ===== */
 [data-theme="dark"] .border,
