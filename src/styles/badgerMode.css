@@ -494,3 +494,22 @@
   color: #fff !important;
 }
 
+/* CityDetail 标签和分类标题 - BadgerView 红色 */
+[data-theme="badger"] .city-tag {
+  background-color: #C5050C !important;
+  color: #fff !important;
+}
+
+[data-theme="badger"] h5 {
+  color: #C5050C !important;
+}
+
+/* Brand Logo - 文字红色渐变，图标不改 */
+[data-theme="badger"] .brand-text {
+  background: linear-gradient(135deg, #C5050C 0%, #FF6B6B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+}
+

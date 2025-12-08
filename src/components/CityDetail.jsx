@@ -155,20 +155,23 @@ export default function CityDetail() {
           <p style={{ fontSize: "1.05rem" }}>{city.summary}</p>
 
           {/* 标签 */}
-          <div className="mb-3">
+          <div className="mb-3 d-flex flex-wrap gap-2">
             {city.tags.map((tag) => (
               <Badge 
                 key={tag} 
-                bg="info" 
-                text="dark" 
-                className="me-2 city-tag"
+                bg="primary" 
+                text="white" 
+                className="city-tag"
                 style={{
+                  fontSize: "0.9rem",
+                  padding: "0.5rem 0.75rem",
+                  fontWeight: "500",
                   cursor: "pointer",
-                  border: "2px solid transparent",
+                  borderRadius: "20px",
                   transition: "all 0.2s ease",
                 }}
               >
-                #{tag}
+                {tag}
               </Badge>
             ))}
           </div>
@@ -197,7 +200,21 @@ export default function CityDetail() {
 
 {Object.entries(details.sections).map(([tag, items]) => (
   <div key={tag} className="mb-5">
-    <h5 className="text-capitalize fw-semibold mb-3">#{tag}</h5>
+    <h5 className="text-capitalize fw-semibold mb-3 d-flex align-items-center" style={{ color: "#646cff", fontSize: "1.3rem" }}>
+      <span style={{ marginRight: "0.5rem", fontSize: "1.2rem" }}>
+        {tag === "food" && "🍽️"}
+        {tag === "culture" && "🏛️"}
+        {tag === "nature" && "🌳"}
+        {tag === "adventure" && "🎢"}
+        {tag === "entertainment" && "🎭"}
+        {tag === "shopping" && "🛍️"}
+        {tag === "museums" && "🖼️"}
+        {tag === "nightlife" && "🌙"}
+        {tag === "hiking" && "⛰️"}
+        {!tag && "✨"}
+      </span>
+      {tag}
+    </h5>
     <Row xs={1} md={2} lg={3} className="g-4">
       {items.map((place, idx) => (
         <Col key={idx}>

@@ -8,25 +8,42 @@ export default function Home() {
 
   return (
     <>
-{/* Hero Section */}
+      {/* Hero Section */}
 <div
-  className="py-5"
+  className="py-5 position-relative"
   style={{
-    backgroundImage: 'url("https://images.pexels.com/photos/1271619/pexels-photo-1271619.jpeg")', 
     backgroundSize: "cover",
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
+    minHeight: "500px",
   }}
 >
+  <img 
+    src="https://images.pexels.com/photos/1271619/pexels-photo-1271619.jpeg"
+    alt="Beautiful landscape - Discover your next adventure with Global Explorer"
+    style={{
+      position: "absolute",
+      top: 0,
+      left: 0,
+      width: "100%",
+      height: "100%",
+      objectFit: "cover",
+      zIndex: 0,
+    }}
+  />
   {/* 加一层半透明黑色遮罩，保证字清晰可见 */}
   <div
     style={{
       backgroundColor: "rgba(0, 0, 0, 0.45)",
       width: "100%",
       height: "100%",
+      position: "absolute",
+      top: 0,
+      left: 0,
+      zIndex: 1,
     }}
   >
-    <Container className="py-5">
+    <Container className="py-5" style={{ position: "relative", zIndex: 2 }}>
       <Row className="align-items-center">
         <Col lg={8} className="mx-auto text-center fade-in">
           <h1 className="display-3 fw-bold mb-4 text-white">
