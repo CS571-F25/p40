@@ -1,4 +1,4 @@
-// src/components/AISearch.jsx
+﻿// src/components/AISearch.jsx
 
 import { useState, useEffect, useMemo } from "react";
 import {
@@ -28,7 +28,6 @@ const CS571_COMPLETIONS_ENDPOINT =
 
 const AI_SEARCH_STORAGE_KEY = "aiSearchFilters_v1";
 
-// 从 AI 文本里尽量抽出 JSON
 function extractJsonFromText(text) {
   if (!text) throw new Error("Empty AI response");
   try {
@@ -57,7 +56,6 @@ export default function AISearch() {
   const hasFilters =
     aiRegions.length > 0 || aiTags.length > 0 || aiSeasons.length > 0;
 
-  // 示例 prompt 小按钮
   const examplePrompts = [
     "A romantic city in Europe with great food and museums",
     "Quiet coastal town with beaches and nature walks",

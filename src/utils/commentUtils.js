@@ -35,7 +35,7 @@ export function getCityComments(cityId) {
   const allComments = getAllComments();
   return allComments
     .filter((comment) => comment.cityId === Number(cityId))
-    .sort((a, b) => b.timestamp - a.timestamp); // 按时间倒序
+    .sort((a, b) => b.timestamp - a.timestamp);
 }
 
 /**
@@ -60,7 +60,6 @@ export function addComment(cityId, author, rating, text) {
   allComments.push(newComment);
   localStorage.setItem(COMMENTS_STORAGE_KEY, JSON.stringify(allComments));
 
-  // 触发更新事件
   window.dispatchEvent(new CustomEvent("commentsUpdated", { detail: { cityId } }));
 
   return newComment;
